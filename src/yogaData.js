@@ -6,18 +6,42 @@ export const EN_IYENGAR = {
     "B.K.S. Iyengar dedicated his life to teaching yoga with clarity and discipline. His method spread worldwide for its structured approach.",
 };
 
-export const EN_FEEDBACKS = [
+export const EN_feedback = [
   {
-    name: "Amit",
-    feedback: "Iyengar Yoga helped me improve my posture and balance.",
+    name: "Esther Howard",
+    mentions: "@estherhoward",
+    review: "Iyengar Yoga helped me improve my posture and feel more energetic every day.",
+    imgPath: "/images/client1.png",
   },
   {
-    name: "Sara",
-    feedback: "The props made yoga easy and safe for me as a beginner.",
+    name: "Wade Warren",
+    mentions: "@wadewarren",
+    review: "The meditation sessions are calming and help me focus better at work.",
+    imgPath: "/images/client3.png",
   },
   {
-    name: "Ravi",
-    feedback: "It brought discipline and calmness into my daily life.",
+    name: "Guy Hawkins",
+    mentions: "@guyhawkins",
+    review: "Pranayama techniques taught here have improved my breathing and overall wellbeing.",
+    imgPath: "/images/client2.png",
+  },
+  {
+    name: "Marvin McKinney",
+    mentions: "@marvinmckinney",
+    review: "Anandam Yoga provides excellent guidance for both beginners and advanced learners.",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "Floyd Miles",
+    mentions: "@floydmiles",
+    review: "I love the holistic approach – body, mind, and soul feel balanced after each class.",
+    imgPath: "/images/client4.png",
+  },
+  {
+    name: "Albert Flores",
+    mentions: "@albertflores",
+    review: "The Iyengar therapy sessions are highly effective and easy to follow at home.",
+    imgPath: "/images/client6.png",
   },
 ];
 
@@ -48,6 +72,38 @@ export const EN_ABOUT_US = {
   instructor:
     "Yashkant Govind, the lead instructor at Anandam Yoga, brings experience and compassion to every session. His teaching blends Iyengar Yoga with pranayama, meditation, and asanas to support holistic well-being.",
 };
+export const EN_PRICING = [{
+  title: "Membership Plans",
+  description: "Access to all classes and workshops.",
+  monthly: "Rs 1300 per month",
+  yearly: "Rs 13000 per year",
+},{
+  title: "Membership Plans",
+  description: "Access to all classes and workshops.",
+  monthly: "Rs 1300 per month",
+  yearly: "Rs 13000 per year",
+},{
+  title: "Membership Plans",
+  description: "Access to all classes and workshops.",
+  monthly: "Rs 1300 per month ",
+  yearly: "Rs 13000 per year",
+}];
+export const HI_PRICING = [{
+  title: "सदस्यता योजना",
+  description: "Access to all classes and workshops.",
+  monthly: "₹1300 प्रति माह ",
+  yearly: "₹13000 प्रति वर्ष",
+},{
+  title: "सदस्यता योजना",
+  description: "Access to all classes and workshops.",
+  monthly: "₹1300 प्रति माह",
+  yearly: "₹13000 प्रति वर्ष",
+},{
+  title: "सदस्यता योजना",
+  description: "Access to all classes and workshops.",
+  monthly: "₹ 1300 प्रति माह",
+  yearly: "₹ 13000 प्रति वर्ष",
+}];
 
 // Hindi Data
 export const HI_IYENGAR = {
@@ -57,17 +113,45 @@ export const HI_IYENGAR = {
     "बी.के.एस. आयंगर ने अपना जीवन योग को स्पष्टता और अनुशासन के साथ सिखाने में समर्पित किया। उनकी पद्धति पूरी दुनिया में फैली।",
 };
 
-export const HI_FEEDBACKS = [
+export const HI_feedback = [
   {
-    name: "अमित",
-    feedback: "आयंगर योग ने मेरी मुद्रा और संतुलन को बेहतर किया।",
+    name: "एस्थर हॉवर्ड",
+    mentions: "@estherhoward",
+    review: "आयंगर योग ने मेरी मुद्रा सुधारने में मदद की और मुझे हर दिन अधिक ऊर्जावान महसूस होता है।",
+    imgPath: "/images/client1.png",
   },
   {
-    name: "सारा",
-    feedback: "प्रॉप्स की वजह से शुरुआती होने पर भी योग आसान और सुरक्षित लगा।",
+    name: "वेड वॉरेन",
+    mentions: "@wadewarren",
+    review: "ध्यान सत्र बहुत शांतिपूर्ण हैं और मुझे काम पर बेहतर ध्यान केंद्रित करने में मदद करते हैं।",
+    imgPath: "/images/client3.png",
   },
-  { name: "रवि", feedback: "इससे मेरे जीवन में अनुशासन और शांति आई।" },
+  {
+    name: "गाय हॉकिंस",
+    mentions: "@guyhawkins",
+    review: "यहाँ सिखाए गए प्राणायाम तकनीकों ने मेरी श्वास और समग्र स्वास्थ्य में सुधार किया है।",
+    imgPath: "/images/client2.png",
+  },
+  {
+    name: "मार्विन मैककिंनी",
+    mentions: "@marvinmckinney",
+    review: "आनंदम योग शुरुआती और उन्नत दोनों के लिए उत्कृष्ट मार्गदर्शन प्रदान करता है।",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "फ्लॉइड माइल्स",
+    mentions: "@floydmiles",
+    review: "मुझे समग्र दृष्टिकोण बहुत पसंद है – हर कक्षा के बाद शरीर, मन और आत्मा संतुलित महसूस करते हैं।",
+    imgPath: "/images/client4.png",
+  },
+  {
+    name: "अल्बर्ट फ्लोरेस",
+    mentions: "@albertflores",
+    review: "आयंगर थेरेपी सत्र बहुत प्रभावी हैं और घर पर पालन करना आसान है।",
+    imgPath: "/images/client6.png",
+  },
 ];
+
 
 export const HI_ASANA = {
   howItWorks:

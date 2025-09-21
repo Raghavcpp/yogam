@@ -1,102 +1,87 @@
-import React, { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
+import React, { useEffect, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { EN_PRICING, HI_PRICING } from '../yogaData';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const SAMPLE_PRICES = {
-  iyengar: { monthly: 1200, yearly: 12000 },
-  pranayama: { monthly: 800, yearly: 8000 },
-  asana: { monthly: 700, yearly: 7000 },
-};
+gsap.registerPlugin(ScrollTrigger);
 
-function formatINR(v) {
-  return `₹${v.toLocaleString("en-IN")}`;
-}
-
-export default function Pricing() {
+export default function PricingSection() {
   const { lang } = useLanguage();
-  const [period, setPeriod] = useState("monthly");
+  const sectionRef = useRef(null);
+  const data = lang === 'en' ? EN_PRICING : HI_PRICING;
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.pricing-card', {
+        y: 60,
+        autoAlpha: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reset',
+        },
+      });
+
+      // Optional hover scale animation
+      gsap.utils.toArray('.pricing-card').forEach((card) => {
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+        });
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, { scale: 1, duration: 0.3, ease: 'power2.out' });
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [lang]);
 
   return (
-    <section id="pricing" className="px-4 py-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="flex items-center justify-between mb-3">
-          <h4 className="text-base font-semibold">
-            {lang === "en" ? "Pricing" : "मूल्य"}
-          </h4>
-          <div className="flex items-center gap-2">
-            <span className="text-xs">
-              {lang === "en" ? "Monthly" : "महीना"}
-            </span>
-            <div className="p-1 bg-gray-100 rounded-full flex items-center gap-1">
-              <button
-                className={`px-3 py-1 rounded-full ${
-                  period === "monthly" ? "bg-green-600 text-white" : ""
-                }`}
-                onClick={() => setPeriod("monthly")}
-              >
-                M
-              </button>
-              <button
-                className={`px-3 py-1 rounded-full ${
-                  period === "yearly" ? "bg-green-600 text-white" : ""
-                }`}
-                onClick={() => setPeriod("yearly")}
-              >
-                Y
-              </button>
-            </div>
-            <span className="text-xs">
-              {lang === "en" ? "Yearly" : "सालाना"}
-            </span>
-          </div>
-        </div>
-
-        <div className="grid gap-3">
-          {Object.entries(SAMPLE_PRICES).map(([key, val]) => (
-            <div key={key} className="bg-white p-4 rounded-lg shadow">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm font-semibold">
-                    {key === "iyengar"
-                      ? lang === "en"
-                        ? "Iyengar Therapy"
-                        : "आयंगर थेरेपी"
-                      : key === "pranayama"
-                      ? lang === "en"
-                        ? "Pranayama Program"
-                        : "प्राणायाम कार्यक्रम"
-                      : lang === "en"
-                      ? "Asana Classes"
-                      : "आसन क्लास"}
-                  </div>
-                  <div className="text-xs text-gray-600">
-                    {lang === "en"
-                      ? "Monthly plan includes weekly classes"
-                      : "मासिक योजना में साप्ताहिक कक्षाएँ शामिल हैं"}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-lg font-semibold">
-                    {formatINR(period === "monthly" ? val.monthly : val.yearly)}
-                  </div>
-                  {period === "yearly" && (
-                    <div className="text-xs text-green-600">
-                      {lang === "en" ? "Save 20%" : "20% बचत"}
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div className="mt-3 flex gap-2">
-                <button className="flex-1 px-3 py-2 rounded bg-green-600 text-white">
-                  {lang === "en" ? "Subscribe" : "सदस्यता लें"}
-                </button>
-                <button className="px-3 py-2 rounded border">
-                  {lang === "en" ? "More" : "और"}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section
+      ref={sectionRef}
+      id="pricing"
+      className="relative py-16 px-6 bg-indigo-50"
+    >
+      <div className="max-w-5xl mx-auto text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-indigo-700 mb-4">
+          {lang === 'en' ? 'Pricing' : 'शुल्क'}
+        </h2>
+        <p className="text-gray-700 text-base sm:text-lg">
+          {lang === 'en'
+            ? 'Choose the right plan for your wellness journey.'
+            : 'अपने स्वास्थ्य यात्रा के लिए सही योजना चुनें।'}
+        </p>
       </div>
+
+      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {Object.keys(data).map((key, idx) => (
+          <div
+            key={idx}
+            className="pricing-card bg-white rounded-2xl shadow-lg p-6 text-center"
+          >
+            <h3 className="text-xl font-semibold text-indigo-600 mb-3">
+              {data[key].title}
+            </h3>
+            <p className="text-gray-700 mb-3">{data[key].description}</p>
+            <div className="flex justify-center gap-4 mt-4">
+              <span className="bg-indigo-100 text-indigo-800 font-bold px-3 py-1 rounded-full">
+                {data[key].monthly}
+              </span>
+              <span className="bg-indigo-600 text-white font-bold px-3 py-1 rounded-full">
+                {data[key].yearly}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Decorative blobs */}
+      <div className="absolute top-[-50px] left-[-40px] w-72 h-72 bg-indigo-200 rounded-full blur-3xl opacity-20 -z-10" />
+      <div className="absolute bottom-[-60px] right-[-50px] w-80 h-80 bg-pink-200 rounded-full blur-3xl opacity-20 -z-10" />
     </section>
   );
 }

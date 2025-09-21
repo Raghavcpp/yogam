@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.hero-badge {
+  @apply py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+}
+
+
+.card-border {
+  @apply border border-black/50 ;
+}
