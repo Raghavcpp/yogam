@@ -124,8 +124,8 @@ export default function PranayamaSection() {
       {/* Decorative blobs */}
       {/* <div className="absolute top-[-40px] left-[-40px] w-72 h-72 bg-black-200 rounded-full blur-3xl opacity-20 -z-10" />
       <div className="absolute bottom-[-50px] right-[-60px] w-80 h-80 bg-pink-200 rounded-full blur-3xl opacity-20 -z-10" /> */}
-      <img className="chakra-bg absolute bottom-0 left-1/2 transform -translate-x-1/2 w-auto scale-200 z-1 opacity-50" src="/images/chakra.png" alt="chakra" />
-      {/* <img className="chakra-bg absolute bottom-0 left-2/1 transform -translate-x-1/2 w-auto scale-200 z-1 opacity-50" src="/images/chakra.png" alt="chakra" /> */}
+      <img className="chakra-bg absolute bottom-0 left-0 right-0 mx-auto w-auto scale-200 z-1 opacity-50" src="/images/chakra.png" alt="chakra" />
+      {/* <img className="chakra-bg absolute bottom-0 left-0 right-0 mx-auto w-auto scale-200 z-1 opacity-50" src="/images/chakra.png" alt="chakra" /> */}
     </section>
   );
 }
