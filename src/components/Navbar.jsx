@@ -37,7 +37,7 @@ export default function Navbar() {
     { id: "asana", en: "Asana", hi: "आसन" },
     { id: "pranayama", en: "Pranayama", hi: "प्राणायाम" },
     { id: "meditation", en: "Meditation", hi: "ध्यान" },
-    { id: "pricing", en: "Pricing", hi: "शुल्क" },
+    // { id: "pricing", en: "Pricing", hi: "शुल्क" },
     { id: "gallery", en: "Gallery", hi: "गैलरी" },
     { id: "testimonials", en: "Testimonials", hi: "प्रशंसापत्र" },
     { id: "contact", en: "Contact", hi: "संपर्क" },
