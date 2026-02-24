@@ -31,7 +31,7 @@ export default function App() {
           <PranayamaSection />
           <Meditation />
           <ShortsSlider />
-          <Pricing />
+          {/* <Pricing /> */}
           <Slider2 />
         </main>
         <Footer />
