@@ -58,8 +58,8 @@ export default function Footer() {
         {/* Contact Info */}
         <p className="text-sm sm:text-base mb-2">
           {lang === "en"
-            ? "Email: info@anandamyoga.com | Phone: +91 86960 22227"
-            : "ईमेल: info@anandamyoga.com | फ़ोन: +91 86960 22227"}
+            ? "Email: yogaaanandam@gmail.com | Phone: +91 86960 22227"
+            : "ईमेल: yogaaanandam@gmail.com | फ़ोन: +91 86960 22227"}
         </p>
         <p className="text-sm sm:text-base">
           {lang === "en"

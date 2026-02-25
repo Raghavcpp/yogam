@@ -7,3 +7,118 @@
 .card-border {
   @apply border border-black/50;
 }
+/* ─────────────────────────────────────────────
+   Anandam Yoga — Global Styles
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── Design Tokens ─────────────────────────── */
+:root {
+  --color-primary:   #4f46e5; /* indigo-600 */
+  --color-primary-d: #3730a3; /* indigo-800 */
+  --color-accent:    #ec4899; /* pink-500   */
+  --color-surface:   #f9fafb; /* gray-50    */
+  --color-text:      #111827; /* gray-900   */
+  --color-muted:     #6b7280; /* gray-500   */
+  --font-display:    'Lora', Georgia, serif;
+  --font-body:       'DM Sans', system-ui, sans-serif;
+  --radius-xl:       1.25rem;
+  --shadow-card:     0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* ── Base ──────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px; /* accounts for fixed navbar */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Typography ────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Use display font for section headings */
+section h2 {
+  font-family: var(--font-display);
+}
+
+/* ── Smooth section transitions ────────────── */
+section {
+  scroll-margin-top: 68px;
+}
+
+/* ── Utility classes used across components ─ */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 99px;
+}
+
+/* ── Selection ─────────────────────────────── */
+::selection {
+  background: #c7d2fe;
+  color: #1e1b4b;
+}
+
+/* ── Focus outline (accessibility) ─────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ── GlowCard base (used in Testimonials) ─── */
+.glow-card {
+  background: #1a1a2e;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  break-inside: avoid;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.glow-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 32px rgba(99,102,241,0.35);
+}
+
+/* ── Keen slider ──────────────────────────── */
+.keen-slider__slide img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ── Animations (fallback if GSAP is slow) ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.7s ease both;
+}

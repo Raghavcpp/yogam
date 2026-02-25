@@ -8,10 +8,12 @@ import Testimonials from "./components/Testimonials.jsx";
 import AsanaSection from "./components/AsanaSection.jsx";
 import PranayamaSection from "./components/PranayamSection.jsx";
 import Meditation from "./components/Meditation.jsx";
-import Pricing from "./components/Pricing.jsx";
+import Gallery from "./components/Gallery.jsx";
+// import Pricing from "./components/Pricing.jsx"; // commented out — discuss pricing via WhatsApp
 import ShortsSlider from "./components/ShortsSlider.jsx";
 import Footer from "./components/Footer.jsx";
 import "./index.css";
+import Contact from "./components/Contact.jsx";
 
 export default function App() {
   return (
@@ -31,6 +33,8 @@ export default function App() {
           <PranayamaSection />
           <Meditation />
           <ShortsSlider />
+          <Gallery/>
+          <Contact/>
           {/* <Pricing /> */}
           <Slider2 />
         </main>

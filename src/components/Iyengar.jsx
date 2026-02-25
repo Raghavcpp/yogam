@@ -50,6 +50,7 @@ export default function IyengarSection() {
   return (
     <section
       ref={sectionRef}
+      id="iyengar"
       className="relative py-16 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-black-50 to-white text-gray-800 overflow-hidden"
     >
       <div className="max-w-3xl mx-auto text-center">
