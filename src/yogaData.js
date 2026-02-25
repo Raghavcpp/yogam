@@ -45,42 +45,42 @@ export const EN_feedback = [
     mentions: "@priyasharma",
     review:
       "Yashkant sir's Iyengar classes completely resolved my lower-back pain after years of struggle. His eye for alignment is extraordinary.",
-    imgPath: "/images/client1.png",
+    imgPath: "/images/image1.png",
   },
   {
     name: "Rahul Mehta",
     mentions: "@rahulmehta",
     review:
       "The pranayama sessions are life-changing. I sleep better, feel calmer, and my BP readings have improved noticeably.",
-    imgPath: "/images/client3.png",
+    imgPath: "/images/image3.png",
   },
   {
     name: "Sunita Agarwal",
     mentions: "@sunitaagarwal",
     review:
       "As a 58-year-old with arthritis, I never thought yoga was for me. Anandam Yoga proved me completely wrong — I feel 15 years younger.",
-    imgPath: "/images/client2.png",
+    imgPath: "/images/image2.png",
   },
   {
     name: "Arjun Kapoor",
     mentions: "@arjunkapoor",
     review:
       "The meditation sessions bring a stillness I've never found anywhere else. Highly recommend to anyone dealing with stress or anxiety.",
-    imgPath: "/images/client5.png",
+    imgPath: "/images/image5.png",
   },
   {
     name: "Meera Joshi",
     mentions: "@meerajoshi",
     review:
       "I've tried many yoga styles over the years. Anandam's holistic approach — body, breath, and mind together — is simply unmatched.",
-    imgPath: "/images/client4.png",
+    imgPath: "/images/image4.png",
   },
   {
     name: "Vikram Nair",
     mentions: "@vikramnair",
     review:
       "Yashkant sir's attention to each student is remarkable. In a group class, you feel like you're getting personal instruction.",
-    imgPath: "/images/client6.png",
+    imgPath: "/images/image6.png",
   },
 ];
 
@@ -147,7 +147,7 @@ export const EN_CONTACT = {
   phone: "+91 86960 22227",
   email: "yogaaanandam@gmail.com",
   whatsapp: "https://wa.link/rbifou",
-  timings: "Mon – Sat: 6:00 AM – 8:00 AM & 6:00 PM – 8:00 PM",
+  timings: "Mon – Fri: 5:30 AM – 10:00 AM & 5:00 PM – 7:00 PM",
 };
 
 // ─────────────────────────────────────────────
@@ -196,42 +196,42 @@ export const HI_feedback = [
     mentions: "@priyasharma",
     review:
       "यशकांत सर की आयंगर कक्षाओं ने वर्षों की पीठ दर्द की समस्या पूरी तरह ठीक कर दी। एलाइनमेंट पर उनकी दृष्टि असाधारण है।",
-    imgPath: "/images/client1.png",
+    imgPath: "/images/image1.png",
   },
   {
     name: "राहुल मेहता",
     mentions: "@rahulmehta",
     review:
       "प्राणायाम सत्र जीवन बदलने वाले हैं। मैं बेहतर सोता हूँ, शांत महसूस करता हूँ और मेरा रक्तचाप भी सुधरा है।",
-    imgPath: "/images/client3.png",
+    imgPath: "/images/image3.png",
   },
   {
     name: "सुनीता अग्रवाल",
     mentions: "@sunitaagarwal",
     review:
       "58 साल की उम्र और गठिया के साथ मुझे कभी नहीं लगा कि योग मेरे लिए है। आनंदम योग ने मुझे पूरी तरह गलत साबित किया।",
-    imgPath: "/images/client2.png",
+    imgPath: "/images/image2.png",
   },
   {
     name: "अर्जुन कपूर",
     mentions: "@arjunkapoor",
     review:
       "ध्यान सत्र एक ऐसी स्थिरता लाते हैं जो मुझे कहीं और नहीं मिली। तनाव या चिंता से जूझ रहे किसी को भी इसकी सिफारिश करूँगा।",
-    imgPath: "/images/client5.png",
+    imgPath: "/images/image5.png",
   },
   {
     name: "मीरा जोशी",
     mentions: "@meerajoshi",
     review:
       "मैंने वर्षों में कई योग शैलियाँ आज़माई हैं। आनंदम का समग्र दृष्टिकोण — शरीर, श्वास और मन एक साथ — बेजोड़ है।",
-    imgPath: "/images/client4.png",
+    imgPath: "/images/image4.png",
   },
   {
     name: "विक्रम नायर",
     mentions: "@vikramnair",
     review:
       "यशकांत सर का प्रत्येक छात्र पर ध्यान अद्भुत है। समूह कक्षा में भी आपको व्यक्तिगत निर्देश जैसा अनुभव होता है।",
-    imgPath: "/images/client6.png",
+    imgPath: "/images/image6.png",
   },
 ];
 
@@ -298,5 +298,5 @@ export const HI_CONTACT = {
   phone: "+91 86960 22227",
   email: "yogaaanandam@gmail.com",
   whatsapp: "https://wa.link/rbifou",
-  timings: "सोम – शनि: प्रातः 6:00 – 8:00 & सायं 6:00 – 8:00",
+  timings: "सोम – शुक्र: प्रातः 5:30 – 10:00 & सायं 5:00 – 7:00",
 };
