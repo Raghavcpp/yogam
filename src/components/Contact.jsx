@@ -3,16 +3,26 @@ import { useLanguage } from "../context/LanguageContext";
 import { EN_CONTACT, HI_CONTACT } from "../yogaData";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import emailjs from "@emailjs/browser";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// ─────────────────────────────────────────────
+//  EmailJS config — sign up free at emailjs.com
+//  then replace these three values:
+// ─────────────────────────────────────────────
+const EMAILJS_SERVICE_ID  = "service_x3u2srq";   // e.g. "service_abc123"
+const EMAILJS_TEMPLATE_ID = "template_cmbt9xv";  // e.g. "template_xyz789"
+const EMAILJS_PUBLIC_KEY  = "1RBrbNS9CIFKA2Zqf";   // e.g. "aBcDeFgHiJkLmNoP"
 
 export default function Contact() {
   const { lang } = useLanguage();
   const sectionRef = useRef(null);
+  const formRef = useRef(null);
   const data = lang === "en" ? EN_CONTACT : HI_CONTACT;
 
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm]     = useState({ name: "", phone: "", message: "" });
+  const [status, setStatus] = useState("idle"); // "idle" | "sending" | "sent" | "error"
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -32,24 +42,38 @@ export default function Contact() {
     return () => ctx.revert();
   }, [lang]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Build WhatsApp message and open link
-    const msg = encodeURIComponent(
-      `Hi! I'm ${form.name} (${form.phone}).\n\n${form.message}`
-    );
-    window.open(`https://wa.me/918696022227?text=${msg}`, "_blank");
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setForm({ name: "", phone: "", message: "" });
+    setStatus("sending");
+
+    try {
+      // Sends to yogaaanandam@gmail.com via EmailJS
+      // Your EmailJS template should use these variables:
+      //   {{from_name}}  — client's name
+      //   {{phone}}      — client's phone number
+      //   {{message}}    — client's message
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          phone:     form.phone,
+          message:   form.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus("sent");
+      setForm({ name: "", phone: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
+  // ── Info cards (no address) ──────────────────
   const INFO = [
-    {
-      icon: "📍",
-      label: lang === "en" ? "Studio Address" : "स्टूडियो पता",
-      value: data.address,
-    },
     {
       icon: "📞",
       label: lang === "en" ? "Phone / WhatsApp" : "फ़ोन / व्हाट्सएप",
@@ -64,10 +88,17 @@ export default function Contact() {
     },
     {
       icon: "🕐",
-      label: lang === "en" ? "Class Timings" : "कक्षा समय",
+      label: lang === "en" ? "Session Timings" : "सत्र समय",
       value: data.timings,
     },
   ];
+
+  const btnLabel = {
+    idle:    lang === "en" ? "Send Enquiry →"        : "पूछताछ भेजें →",
+    sending: lang === "en" ? "Sending…"              : "भेजा जा रहा है…",
+    sent:    lang === "en" ? "✓ Message Sent!"        : "✓ संदेश भेजा गया!",
+    error:   lang === "en" ? "Failed — try WhatsApp" : "विफल — व्हाट्सएप आज़माएँ",
+  }[status];
 
   return (
     <section
@@ -89,7 +120,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
 
-          {/* ── Info Cards ── */}
+          {/* ── Info Cards + WhatsApp CTA ── */}
           <div className="contact-animate space-y-5">
             {INFO.map((item, i) => (
               <div
@@ -122,18 +153,19 @@ export default function Contact() {
             >
               <span className="text-xl">💬</span>
               {lang === "en"
-                ? "Chat with us on WhatsApp"
-                : "व्हाट्सएप पर हमसे चैट करें"}
+                ? "Chat with me on WhatsApp"
+                : "व्हाट्सएप पर मुझसे चैट करें"}
             </button>
           </div>
 
-          {/* ── Quick Enquiry Form ── */}
+          {/* ── Enquiry Form (sends email via EmailJS) ── */}
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             className="contact-animate bg-white rounded-2xl shadow-lg p-7 border border-gray-100 space-y-5"
           >
             <h3 className="text-lg font-bold text-gray-800 mb-1">
-              {lang === "en" ? "Quick Enquiry" : "त्वरित पूछताछ"}
+              {lang === "en" ? "Send an Enquiry" : "पूछताछ भेजें"}
             </h3>
 
             <div>
@@ -175,8 +207,8 @@ export default function Contact() {
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder={
                   lang === "en"
-                    ? "I'd like to know more about your classes..."
-                    : "मैं आपकी कक्षाओं के बारे में अधिक जानना चाहता/चाहती हूँ..."
+                    ? "I'd like to know more about personal sessions…"
+                    : "मैं व्यक्तिगत सत्रों के बारे में अधिक जानना चाहता/चाहती हूँ…"
                 }
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 transition resize-none"
               />
@@ -184,21 +216,22 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-xl transition-colors duration-300 text-sm shadow"
+              disabled={status === "sending"}
+              className={`w-full font-bold py-3.5 rounded-xl transition-all duration-300 text-sm shadow ${
+                status === "sent"
+                  ? "bg-green-500 text-white"
+                  : status === "error"
+                  ? "bg-red-500 text-white"
+                  : "bg-indigo-600 hover:bg-indigo-700 text-white disabled:opacity-60"
+              }`}
             >
-              {submitted
-                ? lang === "en"
-                  ? "✓ Opening WhatsApp…"
-                  : "✓ व्हाट्सएप खुल रहा है…"
-                : lang === "en"
-                ? "Send via WhatsApp →"
-                : "व्हाट्सएप से भेजें →"}
+              {btnLabel}
             </button>
 
             <p className="text-xs text-gray-400 text-center">
               {lang === "en"
-                ? "Your message will be sent via WhatsApp."
-                : "आपका संदेश व्हाट्सएप के माध्यम से भेजा जाएगा।"}
+                ? "Your enquiry will be emailed directly to Yashkant."
+                : "आपकी पूछताछ सीधे यशकांत को ईमेल की जाएगी।"}
             </p>
           </form>
         </div>

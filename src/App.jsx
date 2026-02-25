@@ -8,7 +8,7 @@ import Testimonials from "./components/Testimonials.jsx";
 import AsanaSection from "./components/AsanaSection.jsx";
 import PranayamaSection from "./components/PranayamSection.jsx";
 import Meditation from "./components/Meditation.jsx";
-import Gallery from "./components/Gallery.jsx";
+// import Gallery from "./components/Gallery.jsx";
 // import Pricing from "./components/Pricing.jsx"; // commented out — discuss pricing via WhatsApp
 import ShortsSlider from "./components/ShortsSlider.jsx";
 import Footer from "./components/Footer.jsx";
@@ -33,7 +33,7 @@ export default function App() {
           <PranayamaSection />
           <Meditation />
           <ShortsSlider />
-          <Gallery/>
+          {/* <Gallery/> */}
           <Contact/>
           {/* <Pricing /> */}
           <Slider2 />
