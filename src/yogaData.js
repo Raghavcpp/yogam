@@ -52,28 +52,28 @@ export const EN_feedback = [
     mentions: "@rahulmehta",
     review:
       "The pranayama sessions are life-changing. I sleep better, feel calmer, and my BP readings have improved noticeably.",
-    imgPath: "/images/image3.png",
+    imgPath: "/images/image2.png",
   },
   {
     name: "Sunita Agarwal",
     mentions: "@sunitaagarwal",
     review:
       "As a 58-year-old with arthritis, I never thought yoga was for me. Anandam Yoga proved me completely wrong — I feel 15 years younger.",
-    imgPath: "/images/image2.png",
+    imgPath: "/images/image3.png",
   },
   {
     name: "Arjun Kapoor",
     mentions: "@arjunkapoor",
     review:
       "The meditation sessions bring a stillness I've never found anywhere else. Highly recommend to anyone dealing with stress or anxiety.",
-    imgPath: "/images/image5.png",
+    imgPath: "/images/image4.png",
   },
   {
     name: "Meera Joshi",
     mentions: "@meerajoshi",
     review:
       "I've tried many yoga styles over the years. Anandam's holistic approach — body, breath, and mind together — is simply unmatched.",
-    imgPath: "/images/image4.png",
+    imgPath: "/images/image5.png",
   },
   {
     name: "Vikram Nair",
@@ -203,28 +203,28 @@ export const HI_feedback = [
     mentions: "@rahulmehta",
     review:
       "प्राणायाम सत्र जीवन बदलने वाले हैं। मैं बेहतर सोता हूँ, शांत महसूस करता हूँ और मेरा रक्तचाप भी सुधरा है।",
-    imgPath: "/images/image3.png",
+    imgPath: "/images/image2.png",
   },
   {
     name: "सुनीता अग्रवाल",
     mentions: "@sunitaagarwal",
     review:
       "58 साल की उम्र और गठिया के साथ मुझे कभी नहीं लगा कि योग मेरे लिए है। आनंदम योग ने मुझे पूरी तरह गलत साबित किया।",
-    imgPath: "/images/image2.png",
+    imgPath: "/images/image3.png",
   },
   {
     name: "अर्जुन कपूर",
     mentions: "@arjunkapoor",
     review:
       "ध्यान सत्र एक ऐसी स्थिरता लाते हैं जो मुझे कहीं और नहीं मिली। तनाव या चिंता से जूझ रहे किसी को भी इसकी सिफारिश करूँगा।",
-    imgPath: "/images/image5.png",
+    imgPath: "/images/image4.png",
   },
   {
     name: "मीरा जोशी",
     mentions: "@meerajoshi",
     review:
       "मैंने वर्षों में कई योग शैलियाँ आज़माई हैं। आनंदम का समग्र दृष्टिकोण — शरीर, श्वास और मन एक साथ — बेजोड़ है।",
-    imgPath: "/images/image4.png",
+    imgPath: "/images/image5.png",
   },
   {
     name: "विक्रम नायर",
